@@ -4,9 +4,10 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        Expresion ex = new Expresion("fds@no.es");
+        /**
+         * Instanciacion de la clase.
+         */
+        Expresion ex = new Expresion();
         ex.menu();
     }
 }

@@ -6,15 +6,15 @@ public class Expresion {
     private String texto ;
     private Scanner sc = new Scanner(System.in);
 
-    private  String comp;
-    public Expresion(String texto){
-        this.texto = texto;
-        this.comp = "";
+    public Expresion(){
+        this.texto = "";
     }
 
+    /**
+     * Menú de consola para escoger opción de comparación
+     */
     public void menu(){
         System.out.println("Que necesitas comparar?");
-        setComp(sc.nextLine());
         this.texto = sc.nextLine();
         System.out.println("""
         === === === === === === ===
@@ -58,6 +58,10 @@ public class Expresion {
         }
     }
 
+    /**
+     * la función comprueba si se da un patrón exacto en una
+     * cadena pasada como parámetro
+     */
     public void exactoPatron(){
         Pattern pattern = Pattern.compile("holamundo");
         Matcher match = pattern.matcher(this.texto);
@@ -70,6 +74,11 @@ public class Expresion {
         }
 
     }
+
+    /**
+     * la función comprueba si hay un substring
+     * dentro de una cadena pasada como parámetro
+     */
     public void patronSubstring(){
         Pattern pattern = Pattern.compile("hola.");
         Matcher match = pattern.matcher(this.texto);
@@ -82,6 +91,10 @@ public class Expresion {
         }
     }
 
+    /**
+     * la función comprueba si la cadena pasada como
+     * parámetro comienza por un determinado patrón
+     */
     public void empiezaPor(){
         Pattern pattern = Pattern.compile("^holamundo");
         Matcher match = pattern.matcher(this.texto);
@@ -94,8 +107,12 @@ public class Expresion {
         }
     }
 
+    /**
+     * la función comprueba si la cadena pasada como
+     * parámetro solo contiene unos caracteres determinados
+     */
     public void cadenaConSoN(){
-        Pattern pattern = Pattern.compile("sn.");
+        Pattern pattern = Pattern.compile("^[sn]+$");
         Matcher match = pattern.matcher(this.texto);
         if(match.find()){
             System.out.println("Si contiene S y N" +
@@ -105,8 +122,13 @@ public class Expresion {
                     "\nTexto : "+this.texto);
         }
     }
+
+    /**
+     * la función comprueba si la cadena pasada
+     * como parámetro contiene el número cero seguido del número 1.
+     */
     public void cadenaConOnoseguifofr1(){
-        Pattern pattern = Pattern.compile("01");
+        Pattern pattern = Pattern.compile("01+");
         Matcher match = pattern.matcher(this.texto);
         if(match.find()){
             System.out.println("Si contiene el 0 seguido de 1" +
@@ -116,6 +138,11 @@ public class Expresion {
                     "\nTexto : "+this.texto);
         }
     }
+
+    /**
+     * la función comprueba si el email
+     * introducido como parámetro es válido.
+     */
     public void esEmailValido(){
         Pattern pattern = Pattern.compile("([a-z]+)@([a-z]+)\\.([a-z]+)");
         Matcher match = pattern.matcher(this.texto);
@@ -128,7 +155,4 @@ public class Expresion {
         }
     }
 
-    public void setComp(String comp) {
-        this.comp = sc.nextLine();
-    }
 }
