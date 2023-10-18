@@ -53,7 +53,7 @@ public class Expresion {
                 menu();
                 break;
             default:
-                System.out.println("Valor no valido");
+                System.out.println("Valor no válido");
                 menu();
         }
     }
